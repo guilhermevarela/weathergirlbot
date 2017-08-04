@@ -41,7 +41,7 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 .matches('Weather.GetForecast', (session, args) => {
     var entities = args.entities;
     var location = builder.EntityRecognizer.findEntity(entities, 'Weather.Location');
-    session.send('So you want to know how the weather is going to be in',location);
+    session.send('So you want to know how the weather is going to be in \'%s\'',location);
 })    
 .onDefault((session, args) => {
     session.send('Sorry, I did not understand \'%s\'.', session.message.text);
