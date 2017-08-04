@@ -38,6 +38,11 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 .matches('greeting', (session, args) => {
     session.send('Hello you, what\'s up?');
 })
+.matches('Weather.GetForecast', (session, args) => {
+    var entities = args.entities;
+    var location = builder.EntityRecognizer.findEntity(entities, 'Weather.Location');
+    session.send('So you want to know how the weather is going to be in',location);
+})    
 .onDefault((session, args) => {
     session.send('Sorry, I did not understand \'%s\'.', session.message.text);
     session.send('LUIS ARGS \'%s\'', JSON.stringify(args));
