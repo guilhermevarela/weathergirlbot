@@ -38,8 +38,9 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 .matches('greeting', (session, args) => {
     session.send('Hello you, what\'s up?');
 })
-.onDefault((session) => {
+.onDefault((session, args) => {
     session.send('Sorry, I did not understand \'%s\'.', session.message.text);
+    session.send('LUIS ARGS', JSON.stringify(args));
 });
 
 bot.dialog('/', intents);    
