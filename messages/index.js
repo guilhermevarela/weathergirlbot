@@ -35,7 +35,7 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 /*
 .matches('<yourIntent>')... See details at http://docs.botframework.com/builder/node/guides/understanding-natural-language/
 */
-.matches('Make-appointment', (session, args) => {
+.matches('greeting', (session, args) => {
     session.send('Hello you, what\'s up?');
 })
 .onDefault((session) => {
