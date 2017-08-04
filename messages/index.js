@@ -40,7 +40,7 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 })
 .onDefault((session, args) => {
     session.send('Sorry, I did not understand \'%s\'.', session.message.text);
-    session.send('LUIS ARGS', JSON.stringify(args));
+    session.send('LUIS ARGS \'%s\'', JSON.stringify(args));
 });
 
 bot.dialog('/', intents);    
